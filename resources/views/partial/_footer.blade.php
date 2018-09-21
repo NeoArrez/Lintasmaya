@@ -1,0 +1,1 @@
+<p id="copyright" class="footer">&copy; <span id="WebName"></span><span id="yearnow"></span>. All rights reserved.</p>
