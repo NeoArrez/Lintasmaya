@@ -1,0 +1,250 @@
+
+/*Gambar Background Welcome Page*/
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("../images/Background.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*Style Company Name*/
+.companyname1{
+	font-size: 50px;
+	margin-top: 0px;
+	padding-top: 20px;
+	margin-bottom: 0px;
+	padding-left: 20px;
+    color: rgba(255,255,255,1);
+}
+
+.companyname2{
+	font-size: 20px;
+	margin-top: 0px;
+	padding-left: 20px;
+	letter-spacing: 5px;
+    color: rgba(255,92,92,1);
+}
+/*Warna Navbar saat ditampilkan*/
+
+/*Welcome nav*/
+.guestnav{
+    background-color: rgba(250,169,27,1);
+    color: rgba(255,255,255,1);
+    border-style: none;
+    margin-left: 10px;
+}
+.authnav>li>a:hover,.authnav>li>a:focus{
+	background-color: rgba(250,169,27,1);
+	color: rgba(250,92,92,1);
+}
+
+/*Login Page*/
+.loginpage{
+    background-image: url("../images/login.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.loginpanel{
+	margin-top: 8%;
+}
+
+.panel{
+    color: rgba(255,255,255,1);
+    background-color: rgba(0,0,0,0.4);
+    border-color: #ddd;
+}
+
+.panel-default>.panel-heading {
+    color: rgba(255,255,255,1);
+    background-color: rgba(0,0,0,0.4);
+    border-color: #ddd;
+}
+
+/*Default Nav*/
+.navbar-default {
+    background-color: rgba(239,81,72,1);
+    color: rgba(255,255,255,1);
+    border-style: none;
+}
+
+.navbar-default .navbar-brand{
+	color: rgba(255,255,255,1);
+}
+
+/*Warna Brand saat focus/hover*/
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+	color: rgba(255,255,255,1);
+}
+
+/*Warna Tulian Menu saat ditampilkan*/
+.navbar-default .navbar-nav>li>a{
+	color: rgba(255,255,255,1);
+}
+
+/*Warna Tulian Menu saat focus/hover*/
+.navbar-default .navbar-nav>li:hover, .navbar-default .navbar-nav>li>a:hover{
+	background-color: rgba(0,0,0,1);
+	color: rgba(255,255,255,1);
+	/*color: rgba(0,0,0,1);*/
+}
+
+/*Memunculkan List Dropdown saat focus/hover*/
+.navbar-nav .dropdown:hover  .dropdown-menu{
+	display: block;
+	min-width: 150px;
+	/*background-color: rgba(0,0,0,1);*/
+}
+
+/*Warna Tulisan Menu Dropdown saat focus/hover*/
+.dropdown-menu>li>a:hover{
+	color: rgba(255,255,255,1);
+	background-color: rgba(0,0,0,1);
+}
+
+/*Merapatkan Navbar & Layar Isi*/
+.navbar{
+	margin-bottom: 0px;
+}
+
+.footer{
+	font-size: 10px;
+}
+
+.container{
+	padding-top: 30px;
+	padding-bottom: 30px; 
+}
+
+#sect1{
+	height:90vh;
+	/*padding: 0px;
+	width: 50%;
+	height:50vh;
+	background-color: rgba(249,156,75,1);*/
+}
+
+#sect2{
+	height:90vh;
+	
+	/*padding: 0px;
+	width: 50%;
+	height:50vh;
+	background-color: rgba(255,255,255,1);*/
+}
+
+#sect3{
+	height:10vh;
+	/*padding: 0px;
+	width: 50%;
+	height:50vh;
+	background-color: rgba(255,255,255,1);*/
+}
+
+#sect4{
+	height:10vh;
+	/*padding: 0px;
+	width: 50%;
+	height:50vh;
+	background-color: rgba(249,156,75,1);*/
+}
+
+.addbtn,.minusbtn{
+	margin-top: 25px;
+}
+
+.adddata,.minusbtn{
+	display: none;
+}
+
+#bsect1{
+  	width: 100%;
+  	height: 100%;
+  	background-color: transparent;
+  	text-align: center;
+  	font-family: 'Viga', sans-serif;
+}
+
+#bsect1 a{
+  	font-size: 8vw;
+  	text-decoration: none;
+}
+
+#bsect2 {
+  	width: 100%;
+  	height: 100%;
+  	background-color: transparent;
+  	text-align: center;
+  	font-family: 'Viga', sans-serif;
+}
+
+#bsect2 a{
+  	font-size: 8vw;
+  	text-decoration: none;
+}
+
+#bsect3{
+  	width: 100%;
+  	height: 100%;
+  	background-color: transparent;
+  	text-align: center;
+  	font-family: 'Viga', sans-serif;
+}
+
+#bsect3 a{
+  	font-size: 8vw;
+  	text-decoration: none;
+}
+
+#bsect4{
+  	width: 100%;
+  	height: 100%;
+  	background-color: transparent;
+  	text-align: center;
+  	font-family: 'Viga', sans-serif;
+}
+
+#bsect4 a{
+  	font-size: 8vw;
+  	text-decoration: none;
+}
+
+.btndel{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+table{
+    font-size: 11px;
+
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+
+.Lunas{
+  color: red;
+}
