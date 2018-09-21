@@ -1,0 +1,66 @@
+<?php $__env->startSection('title', '| Karyawan'); ?>
+
+<?php $__env->startSection('stylesheets'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-10">
+			<h1>Data Karyawan</h1>
+		</div>
+
+		<div class="col-md-2" style="margin-top: 20px;">
+			<a href= "<?php echo e(route('karyawan.create')); ?>">
+				<button type="button" class="btn btn-primary btn-md" style="margin-bottom: 10px">Tambah Karyawan</button>
+			</a>
+		</div>
+		<div class="col-md-12">
+			<hr>
+		</div>
+	</div>
+
+	<div class="row">
+
+			<table class="table table-striped" style="font-size:12px;">
+			  	<thead>
+			  		<th class="col-md-1" >NIP</th>
+			  		<th class="col-md-1">Nama Lengkap</th>
+			  		<th class="col-md-2">Alamat</th>
+			  		<th class="col-md-1">Email</th>
+			  		<th class="col-md-1">HP</th>
+			  		<th class="col-md-1">Jabatan</th>
+			  		<th class="col-md-1">Keterangan</th>
+			  		<th class="col-md-1"> </th>
+			  	</thead>
+			  	<tbody>
+			  		<?php foreach($Karyawans as $Karyawan): ?>
+			  			<tr>
+			  				<th><?php echo e($Karyawan->NIP); ?></th>
+			  				<td><?php echo e($Karyawan->NamaLengkap); ?></td>
+			  				<td><?php echo e($Karyawan->Alamat); ?></td>
+			  				<td><?php echo e($Karyawan->Email); ?></td>
+			  				<td><?php echo e($Karyawan->HP); ?></td>
+			  				<td><?php echo e($Karyawan->Jabatan); ?></td>
+			  				<td><?php echo e($Karyawan->Keterangan); ?></td>
+			  				<td>
+			  					<a href="<?php echo e(route('karyawan.show',$Karyawan->id)); ?>" class="btn btn-success btn-sm">
+			  						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+			  					</a>
+			  					<a href="<?php echo e(route('karyawan.edit',$Karyawan->id)); ?>" class="btn btn-success btn-sm">
+			  						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+			  					</a>
+
+			  				</td>
+			  			</tr>
+			  		<?php endforeach; ?>
+			  	</tbody>
+			</table>
+	</div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('javascripts'); ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,83 @@
+<?php $__env->startSection('title', '| Stok Master'); ?>
+
+<?php $__env->startSection('stylesheets'); ?>	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2 col-md-offset-10">
+
+		</div>
+
+
+		<div class="col-md-12">
+			<?php echo Form::open(['route' => 'karyawan.store']); ?>
+
+	
+				<div class="col-md-4">
+				    <?php echo Form::label('NIP', 'Nomor Induk Pegawai'); ?>
+
+				    <?php echo Form::text('NIP', null, ['class'=>'form-control','style'=>'width:240px;','maxlength' => 25]); ?>
+
+				    <?php echo Form::label('NamaLengkap', 'Nama Lengkap'); ?>
+
+				    <?php echo Form::text('NamaLengkap', null, ['class'=>'form-control']); ?>
+
+					<?php echo Form::label('Alamat', 'Alamat'); ?>
+
+					<?php echo Form::textarea('Alamat', null, ['class'=>'form-control','style'=>'height:100px;']); ?>
+
+		    							
+				</div>
+				<div class="col-md-8">
+					<div class="col-md-12">
+						<div class="col-md-5">
+							<?php echo Form::label('Email', 'Email'); ?>
+
+							<?php echo Form::text('Email', null, ['class'=>'form-control']); ?>
+
+						</div>
+						<div class="col-md-3">
+							<?php echo Form::label('HP', 'HP'); ?>
+
+							<?php echo Form::text('HP', null, ['class'=>'form-control']); ?>
+
+						</div>
+						<div class="col-md-4">
+							<?php echo Form::label('Jabatan', 'Jabatan'); ?>
+
+							<?php echo Form::text('Jabatan', null, ['class'=>'form-control']); ?>
+
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="col-sm-12">
+							<?php echo Form::label('Keterangan', 'Keterangan'); ?>
+
+							<?php echo Form::textarea('Keterangan', null, ['class'=>'form-control','style'=>'height:100px;']); ?>
+
+						</div>
+						<div class="col-md-2">
+  							<button type="button" class="btn btn-primary minusbtn">-</button>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="col-md-4">
+				    		<?php echo Form::submit ('Tambahkan Item', ['class'=>'btn btn-success btn-lg btn-block','style'=>'margin-top:10px;']); ?>
+
+				    	</div>
+					</div>
+				</div>
+			<?php echo Form::close(); ?>
+
+		</div>
+					<div class="test"></div>	
+	</div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('javascripts'); ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

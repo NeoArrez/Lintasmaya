@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php echo $__env->make('partial._head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<body>
+	<section>
+		<?php echo $__env->make('partial._banner', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('partial._nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	</section>
+	<section>
+	<?php echo $__env->make('partial._messages', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->yieldContent('content'); ?>
+	</section>
+	<section>
+	<?php echo $__env->make('partial._javascripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->make('partial._footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	</section>
+
+</body>
+</html>

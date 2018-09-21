@@ -1,0 +1,86 @@
+<?php $__env->startSection('title', '| User'); ?>
+
+<?php $__env->startSection('stylesheets'); ?>	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container-fluid">
+
+	<div class="col-md-1 col-md-offset-11">
+		<a href="<?php echo e(route('user.index')); ?>" class="btn btn-lg btn-block" style='margin-top: 10px'>
+			Kembali
+		</a>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 loginpanel">
+			<div class="panel panel-default">
+				<div class="panel-heading">Edit User</div>
+				<div class="panel-body">
+					<?php echo Form::model($user,['route' => ['user.update',$user->id], 'method' => 'PUT', 'class'=>'form-horizontal']); ?>
+
+					
+						<div class="form-group">
+						    <?php echo Form::label('name', 'Username',['class'=>'col-md-4 control-label']); ?>
+
+						    <div class="col-md-6">
+						    	<?php echo Form::text('name', null, ['class'=>'form-control']); ?>
+
+							</div>
+						</div>
+
+						<div class="form-group">
+						    <?php echo Form::label('NamaLengkap', 'Nama Lengkap',['class'=>'col-md-4 control-label']); ?>
+
+						    <div class="col-md-6">
+						    	<?php echo Form::text('NamaLengkap', null, ['class'=>'form-control']); ?>
+
+							</div>
+						</div>
+
+						<div class="form-group">
+							<?php echo Form::label('email', 'E-Mail Address',['class'=>'col-md-4 control-label']); ?>
+
+						    <div class="col-md-6">
+								<?php echo Form::text('email', null, ['class'=>'form-control','type'=>'email']); ?>
+
+							</div>
+						</div>
+
+						<div class="form-group">
+							<?php echo Form::label('password', 'Password',['class'=>'col-md-4 control-label']); ?>
+
+						    <div class="col-md-6">
+								<?php echo Form::password('password', ['class'=>'form-control','type'=>'password']); ?>
+
+							</div>
+						</div>
+
+						<div class="form-group">
+							<?php echo Form::label('password_confirmation', 'Confirm Password',['class'=>'col-md-4 control-label']); ?>
+
+						    <div class="col-md-6">
+								<?php echo Form::password('password_confirmation', ['class'=>'form-control','type'=>'password']); ?>
+
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<div class="col-md-6 col-md-offset-4">
+					    		<?php echo Form::submit ('Simpan Perubahan', ['class'=>'btn btn-primary']); ?>
+
+					    	</div>
+				    	</div>
+					<?php echo Form::close(); ?>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('javascripts'); ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('applogin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

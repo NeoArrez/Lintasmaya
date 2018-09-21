@@ -1,0 +1,113 @@
+<?php $__env->startSection('title', '| BTS'); ?>
+
+<?php $__env->startSection('stylesheets'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-10">
+			<h1>Data BTS</h1>
+		</div>
+
+		<div class="col-md-2" style="margin-top: 20px;">
+			<a href="<?php echo e(route('bts.create')); ?>" class="btn btn-primary btn-md" style='margin-bottom: 10px'>
+				Tambah BTS
+			</a>
+		</div>
+
+		<div class="col-md-12">
+			<hr>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<table class="table table-striped" style="font-size:12px;">
+		  	<thead>
+		  		<th class="col-md-1">Kode</th>
+		  		<th class="col-md-2">Nama BTS</th>
+		  		<th class="col-md-2">Keterangan</th>
+		  		<th class="col-md-1"> </th>
+
+		  	</thead>
+		  	<tbody>
+		  		<?php foreach($btss as $bts): ?>
+		  			<tr>
+		  				<th><?php echo e($bts->id); ?></th>
+		  				<td><?php echo e($bts->NamaBTS); ?></td>
+		  				<td><?php echo e($bts->Keterangan); ?></td>
+		  				<td style="padding-top: 3px">
+		  					<a href="<?php echo e(route('bts.edit',$bts->id)); ?>" class="btn btn-success btn-sm">
+		  						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+		  					</a>
+
+		  					<div class="btn btn-sm btndel">
+			  					<?php echo Form::Open(['route' => ['bts.destroy', $bts->id], 'method' => 'DELETE']); ?>
+
+
+
+					    			<?php echo Form::Button('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>', ['type'=> 'submit','class'=>'btn btn-warning btn-sm']); ?>
+
+
+			  					<?php echo Form::Close(); ?>
+
+		  					</div	>
+
+		  				</td>
+		  			</tr>
+		  		<?php endforeach; ?>
+		  	</tbody>
+		</table>
+		<div class="text-center">
+			<?php echo $btss->render();; ?>
+
+		</div>
+	</div>
+	<div class="row">
+
+			<h4>BTS Non Aktif</h4>
+
+			<table class="table table-striped" style="font-size:12px;">
+			  	<thead>
+			  		<th class="col-md-1">Kode</th>
+			  		<th class="col-md-2">Nama BTS</th>
+			  		<th class="col-md-2">Keterangan</th>
+			  		<th class="col-md-1"> </th>
+			  	</thead>
+			  	<tbody>
+			  		<?php foreach($nonaktif as $bts): ?>
+			  			<tr>
+			  				<th><?php echo e($bts->id); ?></th>
+		  					<td><?php echo e($bts->NamaBTS); ?></td>
+		  					<td><?php echo e($bts->Keterangan); ?></td>		
+							<td>
+								<?php if($bts->deleted_at != NULL): ?>
+									nonaktif sejak : <br>
+									<?php echo e(date('d F Y', strtotime($bts->deleted_at))); ?> <br>
+									<?php echo e(date('H:i:s', strtotime($bts->deleted_at))); ?>
+
+								<?php endif; ?>
+							</td>	
+			  				<td>	
+			  					<a href="<?php echo e(route('bts.restore',$bts->id)); ?>" class="btn btn-primary btn-sm">
+			  						<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+			  					</a>
+
+			  					<a href="<?php echo e(route('bts.delete',$bts->id)); ?>" class="btn btn-danger btn-sm">
+			  						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+			  					</a>
+
+			  				</td>
+			  			</tr>
+			  		<?php endforeach; ?>
+			  	</tbody>
+			</table>
+		</div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('javascripts'); ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php echo $__env->make('partial._head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<body>
+	<?php /* <?php echo $__env->make('partial._banner', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> */ ?>
+	<?php echo $__env->make('partial._messages', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<div class="loginpage">
+		<?php echo $__env->yieldContent('content'); ?>
+	</div>
+	
+	<?php /* <div id='sect1' class="col-md-6">
+		<button id='bsect1' class="btn bsect1">
+			<a class ="bsect1" href="<?php echo e(url('isp')); ?>">ISP</a>
+		</button>
+	</div>
+	<div id='sect2' class="col-md-6">
+		<button id='bsect2' class="btn bsect2">
+			<a class ="bsect2" href="<?php echo e(url('hosting')); ?>">HOSTING</a>
+		</button>
+	</div>
+
+	<div id='sect3' class="col-md-6">
+		<button id='bsect3' class="btn bsect2">
+			<a class ="bsect3" href="<?php echo e(url('isp')); ?>">HOSTING</a>
+		</button>
+	</div>
+	<div id='sect4' class="col-md-6">
+		<button id='bsect4' class="btn bsect2">
+			<a class ="bsect4" href="<?php echo e(url('isp')); ?>">ISP</a>
+		</button>
+	</div> */ ?>
+	<?php echo $__env->make('partial._javascripts', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->make('partial._footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<?php $__env->startSection('title', '| Invoice'); ?>
+
+<?php $__env->startSection('stylesheets'); ?>	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+	<div class="col-md-2 col-md-offset-10">
+
+	</div>
+
+	<div class="row">
+		<?php echo Form::model($invoice,['route' => ['invoice.update',$invoice->id], 'method' => 'PUT','class' => 'form-horizontal']); ?>
+
+
+			<div class="row">
+				<h3>Transaksi Pembayaran</h3>
+			</div>
+			<div class="col-md-5">
+				<div class="form-group">
+					<div class="col-md-4">
+				    	<?php echo Form::label('NoInvoice', 'Kode Invoice'); ?>
+
+					</div>
+					<div class="col-md-8">
+				    	<?php echo Form::text('NoInvoice', $invoice->NoInvoice, ['class'=>'form-control','disabled'=>'disabled']); ?>
+
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-4">
+				    	<?php echo Form::label('IDPerusahaan', 'ID Pelanggan'); ?>
+
+					</div>
+					<div class="col-md-8">
+				    	<?php echo Form::text('IDPerusahaan', null, ['class'=>'form-control','disabled'=>'disabled']); ?>
+
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-4">
+				    	<?php echo Form::label('NamaPerusahaan', 'Nama Pelanggan'); ?>
+
+					</div>
+					<div class="col-md-8">
+				    	<?php echo Form::text('NamaPerusahaan', null, ['class'=>'form-control','disabled'=>'disabled']); ?>
+
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-4">
+						<?php echo Form::label('Alamat', 'Alamat'); ?>
+
+					</div>
+					<div class="col-md-8">
+						<?php echo Form::text('Alamat', null, ['class'=>'form-control','disabled'=>'disabled']); ?>
+
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-4">
+						<?php echo Form::label('Telepon', 'Telepon'); ?>
+
+					</div>
+					<div class="col-md-8">
+						<?php echo Form::text('Telepon', null, ['class'=>'form-control','disabled'=>'disabled']); ?>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<div class="col-md-6">
+						<?php echo Form::label('Bulanan', 'Tagihan'); ?>
+
+					</div>
+					<div class="col-md-6">
+						<?php echo Form::text('Bulanan', null, ['class'=>'form-control','style'=>'text-align:right;','disabled'=>'disabled']); ?>
+
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-6">
+						<?php echo Form::label('Potongan', 'Diskon'); ?>
+
+					</div>
+					<div class="col-md-6">
+						<?php echo Form::text('Potongan', null, ['class'=>'form-control','style'=>'text-align:right;','disabled'=>'disabled']); ?>
+
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-6">
+						<?php echo Form::label('PPN', 'PPN'); ?>
+
+					</div>
+					<div class="col-md-6">
+						<?php echo Form::text('PPN', null, ['class'=>'form-control','style'=>'text-align:right;','disabled'=>'disabled']); ?>
+
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-6">
+						<?php echo Form::label('Total', 'Total Tagihan'); ?>
+
+					</div>
+					<div class="col-md-6">
+						<?php echo Form::text('Total', null, ['class'=>'form-control','style'=>'text-align:right;','disabled'=>'disabled']); ?>
+
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-6">
+						<?php echo Form::label('CaraBayar', 'Cara Bayar'); ?>
+
+					</div>
+					<div class="col-md-6">
+						<?php echo Form::select('CaraBayar',['Cash' => 'Cash', 'Transfer' => 'Transfer'], 'Cash', ['class'=>'form-control selector caraselector']); ?>
+
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-6">
+						<?php echo Form::label('TglBayar', 'Tanggal Bayar'); ?>
+
+					</div>
+					<div class="col-md-6">
+						<?php echo Form::text('TglBayar', Carbon\carbon::now()->format('d M Y'), ['class'=>'form-control','id'=>'datepicker', 'style'=>'text-align:center;']); ?>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group well">
+					<?php echo Form::label('Keterangan', 'Keterangan'); ?>
+
+					<?php echo Form::textarea('Keterangan', null, ['class'=>'form-control','style'=>'text-align:left;']); ?>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-md-3">
+			    		<?php echo Form::submit ('Simpan Perubahan', ['id'=>'btnSubmit','class'=>'btn btn-success btn-lg btn-block','style'=>'margin-top:10px;']); ?>
+
+			    	</div>
+					<div class="col-md-2">
+						<a href="<?php echo e(route('invoice.index')); ?>" class="btn btn-primary btn-lg btn-block" style='margin-top: 10px'>
+							Cancel
+						</a>
+					</div>
+				</div>
+			</div>
+		<?php echo Form::close(); ?>
+
+	</div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('javascripts'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

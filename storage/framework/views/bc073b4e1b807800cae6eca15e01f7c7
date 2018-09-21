@@ -1,0 +1,53 @@
+<?php $__env->startSection('title', '| BTS'); ?>
+
+<?php $__env->startSection('stylesheets'); ?>	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2 col-md-offset-10">
+
+		</div>
+
+
+		<div class="col-md-12">
+			<?php echo Form::model($bts,['route' => ['bts.update',$bts->id], 'method' => 'PUT']); ?>
+
+				<div class="col-md-4">
+					<div class="row">
+						<h3>Info BTS</h3>
+					</div>
+					<div class="row">
+					    <?php echo Form::label('NamaBTS', 'Nama BTS'); ?>
+
+					    <?php echo Form::text('NamaBTS', null, ['class'=>'form-control','style'=>'width:240px;']); ?>
+
+						<?php echo Form::label('Keterangan', 'Keterangan'); ?>
+
+						<?php echo Form::textarea('Keterangan', null, ['class'=>'form-control','style'=>'height:100px;']); ?>	
+					</div>
+
+					<div class="row">
+						<div class="col-md-5">
+							<a href="<?php echo e(route('bts.index')); ?>" class="btn btn-primary btn-lg btn-block" style='margin-top: 10px'>
+								Cancel
+							</a>
+						</div>
+						<div class="col-md-7">
+				    		<?php echo Form::submit ('Simpan Perubahan', ['class'=>'btn btn-success btn-lg btn-block','style'=>'margin-top:10px;']); ?>
+
+				    	</div>
+					</div>
+				</div>
+			<?php echo Form::close(); ?>
+
+		</div>
+	</div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('javascripts'); ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

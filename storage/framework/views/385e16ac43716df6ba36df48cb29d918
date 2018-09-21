@@ -1,0 +1,22 @@
+
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+	<div class="col-md-9">
+
+		<div class="col-md-10">
+			<h1>Data Invoice</h1>
+		</div>
+		<div class="col-md-12">
+			<hr>
+		</div>
+	</div>
+
+
+</div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('javascripts'); ?>
+<script type="text/javascript">
+</script>
+
+<?php $__env->stopSection(); ?>

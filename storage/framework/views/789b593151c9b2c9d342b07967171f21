@@ -1,0 +1,42 @@
+<?php $__env->startSection('title', '| Product'); ?>
+
+<?php $__env->startSection('stylesheets'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2 col-md-offset-10">
+			<a href= "<?php echo e(url('/employees/create')); ?>">
+				<button type="button" class="btn btn-primary btn-md" style="margin-bottom: 10px">Add Product</button>
+			</a>
+		</div>
+
+<!-- 		<div class="col-md-3 col-md-offset-9">
+
+			<div class="btn-group" role="group" aria-label="...">
+			  <button type="button" class="btn btn-primary">Add</button>
+			  <button type="button" class="btn btn-default">Middle</button>
+			  <button type="button" class="btn btn-default">Right</button>
+			</div>
+		</div>	 -->
+		<div class="col-md-10 col-md-offset-1">
+			
+
+		<!-- 
+			<div class="panel panel-default">
+				<div class="panel-heading">Home</div>
+
+				<div class="panel-body">
+					Test Bro
+				</div>
+			</div> -->
+		</div>
+	</div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('javascripts'); ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

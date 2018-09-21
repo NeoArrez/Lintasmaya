@@ -1,0 +1,125 @@
+<?php $__env->startSection('title', '| Pelanggan'); ?>
+
+<?php $__env->startSection('stylesheets'); ?>	
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2 col-md-offset-10">
+
+		</div>
+
+
+		<div class="col-md-12">
+			<?php echo Form::open(['route' => 'pelanggan.store']); ?>
+
+
+				<div class="col-md-4">
+					<div class="row">
+						<h3>Info Perusahaan</h3>
+					</div>
+					    <?php echo Form::label('NamaPerusahaan', 'Nama Perusahaan'); ?>
+
+					    <?php echo Form::text('NamaPerusahaan', null, ['class'=>'form-control']); ?>
+
+						<?php echo Form::label('Alamat', 'Alamat'); ?>
+
+						<?php echo Form::textarea('Alamat', null, ['class'=>'form-control','style'=>'height:90px;']); ?>
+
+					    <?php echo Form::label('Kota', 'Kota'); ?>
+
+					    <?php echo Form::text('Kota', null, ['class'=>'form-control']); ?>
+
+					    <?php echo Form::label('Email', 'Email'); ?>
+
+					    <?php echo Form::email('Email', null, ['class'=>'form-control']); ?>
+
+						<?php echo Form::label('Telepon', 'Telepon'); ?>
+
+						<?php echo Form::text('Telepon', null, ['class'=>'form-control']); ?>
+
+						<?php echo Form::label('NPWP', 'NPWP'); ?>
+
+						<?php echo Form::text('NPWP', null, ['class'=>'form-control']); ?>
+
+				</div>
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-md-12">
+							<h3>Info Paket</h3>
+						</div>
+					</div>
+					<div class="col-md-8">
+						<?php echo Form::label('Paket', 'Paket'); ?>
+
+						<?php echo Form::text('Paket', null, ['class'=>'form-control']); ?>
+
+					</div>
+					<div class="col-md-4">
+						<?php echo Form::label('Password', 'Password'); ?>
+
+						<?php echo Form::text('Password', null, ['class'=>'form-control']); ?>
+
+					</div>
+					<div class="col-md-3">
+						<?php echo Form::label('Bulanan', 'Bulanan'); ?>
+
+						<?php echo Form::text('Bulanan', 0, ['class'=>'form-control','style'=>'text-align:right;']); ?>
+
+					</div>
+					<div class="col-md-3">
+						<?php echo Form::label('TglAktivasi', 'Tgl Aktivasi'); ?>
+
+						<?php echo Form::text('TglAktivasi', \Carbon\Carbon::now()->format('d M Y'), ['class'=>'form-control','id'=>'datepicker', 'style'=>'text-align:center;']); ?>
+
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<h3>Info Tekhnis</h3>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<?php echo Form::label('IPComputer', 'IP Computer'); ?>
+
+						<?php echo Form::text('IPComputer', null, ['class'=>'form-control']); ?>
+
+					</div>
+					<div class="col-sm-4">
+						<?php echo Form::label('NamaBTS', 'BTS'); ?>
+
+						<?php echo Form::select('NamaBTS',array_merge(['' => 'Silahkan Pilih'],$btslists),null, ['class'=>'form-control selector btsselector']); ?>
+
+					</div>
+					<div class="col-sm-12">
+						<?php echo Form::label('Keterangan', 'Keterangan'); ?>
+
+						<?php echo Form::text('Keterangan', null, ['class'=>'form-control','style'=>'height:90px;']); ?>
+
+					</div>
+
+					<div class="col-md-12">
+						<div class="col-md-4">
+
+						<a href="<?php echo e(route('pelanggan.index')); ?>" class="btn btn-warning btn-lg btn-block" style='margin-top: 10px'>
+							Cancel
+						</a>
+
+						</div>
+						<div class="col-md-5">
+				    		<?php echo Form::submit ('Tambahkan Pelanggan', ['id'=>'btnSubmit','class'=>'btn btn-success btn-lg btn-block','style'=>'margin-top:10px;']); ?>
+
+				    	</div>
+					</div>
+				</div>
+			<?php echo Form::close(); ?>
+
+		</div>
+	</div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('javascripts'); ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

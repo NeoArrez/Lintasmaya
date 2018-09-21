@@ -1,0 +1,25 @@
+<?php $__env->startSection('title', '| Invoice'); ?>
+
+<?php $__env->startSection('stylesheets'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<?php echo Form::open(['method'=>'GET','url'=>$url,'class'=>'navbar-form navbar-left','role'=>'search']); ?>
+
+	<a href="<?php echo e(url($link.'/create')); ?>" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span> Add</a>
+	 
+	<div class="input-group custom-search-form">
+	    <input type="text" class="form-control" name="search" placeholder="Search...">
+	    <span class="input-group-btn">
+	        <button class="btn btn-default-sm" type="submit">
+	            <i class="fa fa-search"></i>
+	        </button>
+	    </span>
+	</div>
+<?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('javascripts'); ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

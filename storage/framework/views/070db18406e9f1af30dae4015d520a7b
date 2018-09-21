@@ -1,0 +1,25 @@
+<?php $__env->startSection('title', '| Home'); ?>
+
+<?php $__env->startSection('stylesheets'); ?>
+	<link href="css/custom.css" rel="stylesheet" />
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container" style="height:75vh">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+
+			<h1>Selamat Datang</h1>
+			<div>
+				<h5><strong><?php echo e(ucwords(Auth::user()->name)); ?></strong>, anda berada di halaman awal Program Invoice Pelanggan ISP</h5>
+			</div>
+		</div>
+	</div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('javascripts'); ?>
+	
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

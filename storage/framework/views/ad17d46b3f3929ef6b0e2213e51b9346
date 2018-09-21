@@ -1,0 +1,139 @@
+<?php $__env->startSection('title', '| Pelanggan'); ?>
+
+<?php $__env->startSection('stylesheets'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
+			<h1>Data Pelanggan</h1>
+		</div>
+
+		<div class="col-md-2" style="margin-top: 20px;">
+			<a href="<?php echo e(route('pelanggan.create')); ?>" class="btn btn-primary btn-md" style='margin-bottom: 10px'>
+				Tambah Pelanggan
+			</a>
+		</div>
+
+		<div class="col-md-12">
+			<hr>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<table class="table table-striped">
+		  	<thead>
+		  		<th class="">Kode</th>
+		  		<th class="">Nama Perusahaan</th>
+		  		<th class="">Alamat</th>
+		  		<th class="">Email</th>
+		  		<th class="">Paket</th>
+		  		<th class="">(Bulanan)</th>
+		  		<th class="">Telepon</th>
+		  		<th class="">IP Computer</th>
+		  		<th class="">NPWP</th>
+		  		<th class=""></th>
+		  	</thead>
+		  	<tbody>
+		  		<?php foreach($pelanggans as $pelanggan): ?>
+		  			<tr>
+		  				<th><?php echo e($pelanggan->id); ?></th>
+		  				<td><?php echo e($pelanggan->NamaPerusahaan); ?></td>
+		  				<td><?php echo e($pelanggan->Alamat); ?></td>
+		  				<td><?php echo e($pelanggan->Email); ?></td>
+		  				<td><?php echo e($pelanggan->Paket); ?></td>
+		  				<td><?php echo e(number_format($pelanggan->Bulanan, 0, ',', '.')); ?></td>
+		  				<td><?php echo e($pelanggan->Telepon); ?></td>
+		  				<td><?php echo e($pelanggan->IPComputer); ?></td>
+		  				<td><?php echo e($pelanggan->NPWP); ?></td>
+		  				<td>
+		  					<a href="<?php echo e(route('pelanggan.edit',$pelanggan->id)); ?>" class="btn btn-success btn-sm">
+		  						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+		  					</a>
+
+		  					<a href="<?php echo e(route('pelanggan.show',$pelanggan->id)); ?>" target ="_blank" class="btn btn-primary btn-sm">
+		  						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		  					</a>
+
+		  					<div class="btn btn-sm btndel">
+			  					<?php echo Form::Open(['route' => ['pelanggan.destroy', $pelanggan->id], 'method' => 'DELETE']); ?>
+
+
+
+					    			<?php echo Form::Button('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>', ['type'=> 'submit','class'=>'btn btn-warning btn-sm']); ?>
+
+
+			  					<?php echo Form::Close(); ?>
+
+		  					</div	>
+
+		  				</td>
+		  			</tr>
+		  		<?php endforeach; ?>
+		  	</tbody>
+		</table>
+		<div class="text-center">
+			<?php echo $pelanggans->render();; ?>
+
+		</div>
+	</div>
+	<div class="row">
+
+			<h4>Pelanggan Non Aktif</h4>
+
+			<table class="table table-striped">
+			  	<thead>
+			  		<th class="">Kode</th>
+			  		<th class="">Nama Perusahaan</th>
+			  		<th class="">Alamat</th>
+			  		<th class="">Email</th>
+			  		<th class="">Paket</th>
+			  		<th class="">(Bulanan)</th>
+			  		<th class="">Telepon</th>
+			  		<th class="">IP Computer</th>
+			  		<th class="">NPWP</th>
+			  		<th class="">Keterangan</th>
+			  	</thead>
+			  	<tbody>
+			  		<?php foreach($nonaktif as $pelanggan): ?>
+			  			<tr>
+			  				<th><?php echo e($pelanggan->id); ?></th>
+			  				<td><?php echo e($pelanggan->NamaPerusahaan); ?></td>
+			  				<td><?php echo e($pelanggan->Alamat); ?></td>
+			  				<td><?php echo e($pelanggan->Email); ?></td>
+			  				<td><?php echo e($pelanggan->Paket); ?></td>
+			  				<td><?php echo e(number_format($pelanggan->Bulanan, 0, ',', '.')); ?></td>
+			  				<td><?php echo e($pelanggan->Telepon); ?></td>
+			  				<td><?php echo e($pelanggan->IPComputer); ?></td>
+			  				<td><?php echo e($pelanggan->NPWP); ?></td>	  				
+							<td>
+								<?php if($pelanggan->deleted_at != NULL): ?>
+									nonaktif sejak : <br>
+									<?php echo e(date('d F Y', strtotime($pelanggan->deleted_at))); ?> <br>
+									<?php echo e(date('H:i:s', strtotime($pelanggan->deleted_at))); ?>
+
+								<?php endif; ?>
+							</td>	
+			  				<td>	
+			  					<a href="<?php echo e(route('pelanggan.restore',$pelanggan->id)); ?>" class="btn btn-primary btn-sm">
+			  						<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+			  					</a>
+
+			  					<a href="<?php echo e(route('pelanggan.delete',$pelanggan->id)); ?>" class="btn btn-danger btn-sm">
+			  						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+			  					</a>
+
+			  				</td>
+			  			</tr>
+			  		<?php endforeach; ?>
+			  	</tbody>
+			</table>
+		</div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('javascripts'); ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

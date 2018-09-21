@@ -1,0 +1,120 @@
+<?php $__env->startSection('title', '| User'); ?>
+
+<?php $__env->startSection('stylesheets'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-10">
+			<h1>Data User</h1>
+		</div>
+
+		<div class="col-md-2" style="margin-top: 20px;">
+			<a href="<?php echo e(route('user.create')); ?>" class="btn btn-primary btn-md" style='margin-bottom: 10px'>
+				Tambah User
+			</a>
+		</div>
+
+		<div class="col-md-12">
+			<hr>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<table class="table table-striped" style="font-size:12px;">
+		  	<thead>
+		  		<th class="col-md-1">Username</th>
+		  		<th class="col-md-1">Nama Lengkap</th>
+		  		<th class="col-md-2">Email</th>
+		  		<th class="col-md-2">Password</th>
+		  		<th class="col-md-1"> </th>
+		  	</thead>
+		  	<tbody>
+		  		<?php foreach($users as $user): ?>
+		  			<tr>
+		  				<th><?php echo e($user->name); ?></th>
+		  				<td><?php echo e($user->NamaLengkap); ?></td>
+		  				<td><?php echo e($user->email); ?></td>
+		  				<td><?php echo e($user->password); ?></td>
+		  				<td>
+
+<?php /* 							<a href="<?php echo e(route('user.show',$user->id)); ?>" class="btn btn-success btn-sm">
+		  						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+		  					</a> */ ?>
+		  					<a href="<?php echo e(route('user.edit',$user->id)); ?>" class="btn btn-success btn-sm">
+		  						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+		  					</a>
+
+		  					<div class="btn btn-sm btndel">
+			  					<?php echo Form::Open(['route' => ['user.destroy', $user->id], 'method' => 'DELETE']); ?>
+
+
+
+					    			<?php echo Form::Button('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>', ['type'=> 'submit','class'=>'btn btn-warning btn-sm']); ?>
+
+
+			  					<?php echo Form::Close(); ?>
+
+		  					</div	>
+
+		  				</td>
+		  			</tr>
+		  		<?php endforeach; ?>
+		  	</tbody>
+		</table>
+		<div class="text-center">
+			<?php echo $users->render();; ?>
+
+		</div>
+	</div>
+	<div class="row">
+
+			<h4>User Non Aktif</h4>
+
+			<table class="table table-striped" style="font-size:12px;">
+			  	<thead>
+			  		<th class="col-md-1">Username</th>
+			  		<th class="col-md-1">Nama Lengkap</th>
+			  		<th class="col-md-2">Email</th>
+		  			<th class="col-md-2">Password</th>
+			  		<th class="col-md-1"> </th>
+			  	</thead>
+			  	<tbody>
+			  		<?php foreach($nonaktif as $user): ?>
+			  			<tr>
+			  				<th><?php echo e($user->name); ?></th>
+			  				<td><?php echo e($user->NamaLengkap); ?></td>
+			  				<td><?php echo e($user->email); ?></td>
+		  					<td><?php echo e($user->password); ?></td>				
+							<td>
+								<?php if($user->deleted_at != NULL): ?>
+									nonaktif sejak : <br>
+									<?php echo e(date('d F Y', strtotime($user->deleted_at))); ?> <br>
+									<?php echo e(date('H:i:s', strtotime($user->deleted_at))); ?>
+
+								<?php endif; ?>
+							</td>	
+			  				<td>	
+			  					<a href="<?php echo e(route('user.restore',$user->id)); ?>" class="btn btn-primary btn-sm">
+			  						<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+			  					</a>
+
+			  					<a href="<?php echo e(route('user.delete',$user->id)); ?>" class="btn btn-danger btn-sm">
+			  						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+			  					</a>
+
+			  				</td>
+			  			</tr>
+			  		<?php endforeach; ?>
+			  	</tbody>
+			</table>
+		</div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('javascripts'); ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,68 @@
+<?php $__env->startSection('title', '| Karyawan'); ?>
+
+<?php $__env->startSection('stylesheets'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-8">
+			<h1>Data Karyawan Baru</h1>
+		</div>
+
+		<div class="col-md-2" style="margin-top: 20px;">
+			<?php echo Html::linkRoute('karyawan.create', 'Tambah Karyawan', [$karyawan->id],['class'=>'btn btn-primary btn-md', 'style'=>'margin-bottom: 10px']); ?>
+
+		</div>
+
+		<div class="col-md-2" style="margin-top: 20px;">
+			<?php echo Html::linkRoute('karyawan.edit', 'Edit Data Karyawan', [$karyawan->id],['class'=>'btn btn-primary btn-md', 'style'=>'margin-bottom: 10px']); ?>
+
+		</div>
+		<div class="col-md-12">
+			<hr>
+		</div>
+	</div>
+
+	<div class="row">
+
+			<table class="table table-striped" style="font-size:12px;">
+			  	<thead>
+			  		<th class="col-md-1" >NIP</th>
+			  		<th class="col-md-1">Nama Lengkap</th>
+			  		<th class="col-md-2">Alamat</th>
+			  		<th class="col-md-1">Email</th>
+			  		<th class="col-md-1">HP</th>
+			  		<th class="col-md-1">Jabatan</th>
+			  		<th class="col-md-1">Keterangan</th>
+			  		<th class="col-md-1"> </th>
+			  	</thead>
+			  	<tbody>
+		  			<tr>
+		  				<th><?php echo e($karyawan->NIP); ?></th>
+		  				<td><?php echo e($karyawan->NamaLengkap); ?></td>
+		  				<td><?php echo e($karyawan->Alamat); ?></td>
+		  				<td><?php echo e($karyawan->Email); ?></td>
+		  				<td><?php echo e($karyawan->HP); ?></td>
+		  				<td><?php echo e($karyawan->Jabatan); ?></td>
+		  				<td><?php echo e($karyawan->Keterangan); ?></td>
+		  				<td>
+		  					<a href="<?php echo e(route('karyawan.show',$karyawan->id)); ?>" class="btn btn-success btn-sm">
+		  						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+		  					</a>
+		  					<a href="<?php echo e(route('karyawan.edit',$karyawan->id)); ?>" class="btn btn-success btn-sm">
+		  						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+		  					</a>
+
+		  				</td>
+		  			</tr>
+			  	</tbody>
+			</table>
+	</div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('javascripts'); ?>
+	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
